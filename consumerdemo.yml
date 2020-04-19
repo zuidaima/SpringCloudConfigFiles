@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: consumerdemo
+  mvc:
+    static-path-pattern: /resources/**  #设置静态资源的请求路径,这表示只有静态资源的访问路径为/resources/**时，才会处理请求
+  resources:
+    static-locations: classpath:/static/,classpath:/public/ #指定静态资源的路径
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver #11g配置如下
+    url: 
+    username: 
+    password: 
+server:
+  port: 8091  #端口为该工程启动使用端口
+
+eureka:
+  instance:
+    prefer-ip-address: true # 注册服务的时候使用服务的ip地址
+  client:
+    service-url:
+      #非集群时使用
+#      defaultZone: http://localhost:9600/eureka/ #注册中心默认节点(端口为注册中心端口)
+      defaultZone: http://admin:admin@register2:10002/eureka/
+feign:
+  hystrix:
+    enabled: true  #启用熔断机制,调用注册中心接口失败,采取降级处理
+mybatis:
+  type-aliases-package: com.cuihui.consumer.consumerdemo.model #扫描实体类,*Mapper.xml中可以使用类名,而非全路径名
+  mapper-locations: classpath:com/cuihui/consumer/consumerdemo/dao/*.xml
+logging:
+  level:
+    com.cuihui.consumer.consumerdemo: DEBUG #打印sql语句
+  config: classpath:logback-spring.xml #读取日志配置文件
