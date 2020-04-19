@@ -7,7 +7,7 @@ spring:
     static-locations: classpath:/static/,classpath:/public/ #指定静态资源的路径
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/javaniu_www?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://localhost:3306/zuidaima_springcloud_demo?useUnicode=true&characterEncoding=utf-8
     username: root
     password: 111111
 server:
