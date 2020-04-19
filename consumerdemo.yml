@@ -6,10 +6,10 @@ spring:
   resources:
     static-locations: classpath:/static/,classpath:/public/ #指定静态资源的路径
   datasource:
-    driver-class-name: oracle.jdbc.OracleDriver #11g配置如下
-    url: 
-    username: 
-    password: 
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/javaniu_www?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 111111
 server:
   port: 8091  #端口为该工程启动使用端口
 
